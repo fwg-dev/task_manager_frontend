@@ -2,6 +2,10 @@
  
  document.addEventListener('DOMContentLoaded', () => {
     getTasks()
+
+    const createTaskForm = document.querySelector("#create-task-form")
+
+    createTaskForm.addEventListener("submit", (e) => createFormHandler(e));
    })
 
    function getTasks(){
@@ -28,6 +32,17 @@
           document.querySelector('#task-container').innerHTML += taskMarkup
       })
   })
+
+ }
+
+ function createFormHandler(e) {
+   e.preventDefault()
+   //prevents page from refreshing when submit event happens
+   //where I am grabbing all the values for the input 
+  // debugger;
+  const titleInput = document.querySelector("#input-title").value
+  const deadlineInput = document.querySelector("#input-deadline").value
+  const completedInput = document.querySelector("#input-completed").value
 
  }
 
