@@ -15,20 +15,19 @@
        // remember our JSON data is a bit nested due to our serializer
        tasks.data.forEach(task => {
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-        const TaskMarkup = `
+        const taskMarkup = `
           <div data-id=${task.id}>
             <h3>${task.attributes.title}</h3>
+            <h3>${task.attributes.deadline}</h3>
+            <h3>${task.attributes.completed}</h3>
             <p>${task.attributes.user.name}</p>
             <button data-id=${task.id}>edit</button>
           </div>
           <br><br>`;
 
-          document.querySelector('#syllabus-container').innerHTML += syllabusMarkup
+          document.querySelector('#task-container').innerHTML += taskMarkup
       })
-    })
-
-   })
- 
+  })
 
  }
 
