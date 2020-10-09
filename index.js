@@ -40,10 +40,16 @@
    //prevents page from refreshing when submit event happens
    //where I am grabbing all the values for the input 
   // debugger;
-  const titleInput = document.querySelector("#input-title").value
-  const deadlineInput = document.querySelector("#input-deadline").value
-  const completedInput = document.querySelector("#input-completed").value
-
+  const titleInput = document.querySelector('#input-title').value
+  const deadlineInput = document.querySelector('#input-deadline').value
+  const completedInput = document.querySelector('#input-completed').value
+  postFetch(titleInput, deadlineInput, completedInput)
  }
+
+ function postFetch(title, deadline, completed){
+   console.log(title, deadline, completed)
+   
+ }
+
 
  
