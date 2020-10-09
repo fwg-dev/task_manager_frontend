@@ -10,10 +10,10 @@
     .then(response => response.json())
     .then(tasks =>{
       //we should be getting an array of tasks
-      console.log(tasks);
-
+      // console.log(tasks);
        // remember our JSON data is a bit nested due to our serializer
        tasks.data.forEach(task => {
+        //  debugger;
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object
         const taskMarkup = `
           <div data-id=${task.id}>
