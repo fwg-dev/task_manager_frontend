@@ -3,7 +3,7 @@
  document.addEventListener('DOMContentLoaded', () => {
     getTasks()
 
-    const createTaskForm = document.querySelector("#create-task-form")
+    let createTaskForm = document.querySelector("#create-task-form")
 
     createTaskForm.addEventListener("submit", (e) => createFormHandler(e));
    })
@@ -20,11 +20,12 @@
         //  debugger;
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object
         const taskMarkup = `
-          <div data-id=${task.id}>
+            <div data-id=${task.id}>
             <h3>${task.attributes.title}</h3>
-            <h3>${task.attributes.deadline}</h3>
-            <h3>${task.attributes.completed}</h3>
-            <p>${task.attributes.user.name}</p>
+            <span>${task.attributes.deadline}</span>
+            <span>${task.attributes.creator}</span>
+            <span>${task.attributes.completed}</span>
+            <span>${task.attributes.project.name}</span>
             <button data-id=${task.id}>edit</button>
           </div>
           <br><br>`;
@@ -42,14 +43,46 @@
   // debugger;
   const titleInput = document.querySelector('#input-title').value
   const deadlineInput = document.querySelector('#input-deadline').value
-  const completedInput = document.querySelector('#input-completed').value
-  postFetch(titleInput, deadlineInput, completedInput)
+  const creatorInput = document.querySelector('#input-creator').value
+  const completedInput = document.querySelector('#input-completed').checked
+  const projectId = parseInt(document.querySelector('#projects').value)
+  postFetch(titleInput, deadlineInput, creatorInput, completedInput, projectId)
  }
 
- function postFetch(title, deadline, completed){
-   console.log(title, deadline, completed)
-   
+ function postFetch(title, deadline, creator, completed, project_id){
+   const bodyData = {title, deadline, creator, completed, project_id}
+   console.log(bodyData);
+   //key-value pair const dara = {username: 'example'};
+  //  let bodyData = {title, deadline, creator, completed, project_id}
+   fetch(endPoint, {
+    // POST request
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(bodyData)
+    
+  })
+  .then(response => response.json())
+  .then(task => {
+      console.log(task);
+  
+    const taskData = task.data
+     // render JSON response
+      const taskMarkup = `
+       <div data-id=${task.id}>
+        <h3>${taskData.attributes.title}</h3>
+        <span>${taskData.attributes.deadline}</span>
+        <span>${taskData.attributes.creator}</span>
+        <span>${taskData.attributes.project.name}</span>
+        <button data-id=${taskData.id}>edit</button>
+        </div>
+        <br><br>`;
+
+       document.querySelector('#task-container').innerHTML += taskMarkup;
+   }) 
+   .catch(error => {
+     console.log(error);
+     alert("could not add task");
+   })
+  
+
  }
-
-
- 
