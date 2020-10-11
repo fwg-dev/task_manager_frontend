@@ -1,8 +1,9 @@
  const endPoint = "http://127.0.0.1:3000/api/v1/tasks";
  
  document.addEventListener('DOMContentLoaded', () => {
+   //fetch and load tasks
     getTasks()
-
+    
     let createTaskForm = document.querySelector("#create-task-form")
 
     createTaskForm.addEventListener("submit", (e) => createFormHandler(e));
@@ -18,23 +19,28 @@
        // remember our JSON data is a bit nested due to our serializer
        tasks.data.forEach(task => {
         //  debugger;
+        render(task)
+      
+    })
+
+  })
+}
+
+    function render(task){
         // double check how your data is nested in the console so you can successfully access the attributes of each individual object
         const taskMarkup = `
-            <div data-id=${task.id}>
-            <h3>${task.attributes.title}</h3>
-            <span>${task.attributes.deadline}</span>
-            <span>${task.attributes.creator}</span>
-            <span>${task.attributes.completed}</span>
-            <span>${task.attributes.project.name}</span>
-            <button data-id=${task.id}>edit</button>
-          </div>
-          <br><br>`;
+          <div data-id=${task.id}>
+          <h3>${task.attributes.title}</h3>
+          <span>${task.attributes.deadline}</span>
+          <span>${task.attributes.creator}</span>
+          <span>${task.attributes.completed}</span>
+          <span>${task.attributes.project.name}</span>
+          <button data-id=${task.id}>edit</button>
+        </div>
+        <br><br>`;
 
-          document.querySelector('#task-container').innerHTML += taskMarkup
-      })
-  })
-
- }
+      document.querySelector('#task-container').innerHTML += taskMarkup
+    }
 
  function createFormHandler(e) {
    e.preventDefault()
@@ -67,18 +73,8 @@
   
     const taskData = task.data
      // render JSON response
-      const taskMarkup = `
-       <div data-id=${task.id}>
-        <h3>${taskData.attributes.title}</h3>
-        <span>${taskData.attributes.deadline}</span>
-        <span>${taskData.attributes.creator}</span>
-        <span>${taskData.attributes.project.name}</span>
-        <button data-id=${taskData.id}>edit</button>
-        </div>
-        <br><br>`;
-
-       document.querySelector('#task-container').innerHTML += taskMarkup;
-   }) 
+     render(taskData)
+  })
    .catch(error => {
      console.log(error);
      alert("could not add task");

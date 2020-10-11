@@ -62,6 +62,27 @@ body: JSON.stringify({
 // this sends that data to the api 
 //stringify that JSON data in order to save it to 
 
+------------------------------
+## How the App is working so far 
+
+* onload, we are fetching the task data - we can confirm this with our local host website 
+* we can create a new task- we get a post request when we 'click' submit, and we can preview the JSON data on console 
+
+* If we have an error on our frontend we want to implement 
+
+*  when we fetch and load the tasks with  getTasks() - we are making a GET  request 
+
+* We manipulate the DOM with the taskMarkup with HTML code then append the innerHTMl in the 'task-container' 
+
+* We do the same thing in the POST request 
+* Instead of repeating the 'taskMarkup' in the GET and POST DOM manipulation, we can refactor and render 
+* We do this by creating a render function which will take up the taskMarkup code, then we can call render(task) where taskMarkup was 
+
+## How to refactor using ooJS
+
+
+
+
 
 
 
