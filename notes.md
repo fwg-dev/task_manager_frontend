@@ -80,6 +80,14 @@ body: JSON.stringify({
 
 ## How to refactor using ooJS
 
+ 1. [x] IMPORTANT: Create a separate branch for your OOJS Refactor
+ 2. [x] Create a JS Class (ex: class Syllabus)
+ 3. [x] Link to the new JS file in your index.html (ex: <script type="text/javascript" src="src/syllabus.js"></script>)
+ 4. [x] Create a constructor that pushes all instances of this into an empty array (See part 4 notes for example)
+ 5. [] Refactor render functionality by creating a render function in your JS class
+ 6. [] For future use, create a static method in your JS class that finds an object based on it's id. (In the PART 4 notes we see how this would be useful for 'update/PATCH' functionality)
+
+
 
 
 
