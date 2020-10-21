@@ -1,52 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script type="text/javascript" src="scr/task.js"></script>
-  <script type="text/javascript" src="scr/index.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Task Manager</title>
 
-  <div class="form-container">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/offcanvas/">
 
-    <form id="create-task-form" style="">
-      <h3>Create a Task!</h3>
-
-     Title: <input id='input-title' type="text" name="title" value="" placeholder="Enter your task name..." class="input-text">
-      <br><br>
-      Deadline: <input id='input-deadline' type="date" name="deadline" value="" class="input-date">
-      <br><br>
-      Creator: <input id='input-creator' type="text" name="creator" value="" placeholder="Enter your name..."class="input-text">
-      <br><br>
-      Completed: <input id='input-completed' type="checkbox" name="completed" value="" class="input-checkbox">
-      <br><br>
-
-
-      <h4>Choose A Project</h4>
-      <select id="projects" name="projects">
-        <option value="13">Event Management</option>
-        <option value="14">Design Conference</option>
-      </select>
-      <br><br>
-
-      <!-- <h4>Or Create a new Project </h4>
-
-       <input id='input-new-project' type="text" name="new project" value="" placeholder="Create new porject" class="input-text"> -->
-  
+    <!-- Bootstrap-4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
       
-      <input id= 'create-button' type="submit" name="submit" value="Create New Task" class="submit">
-    </form>
-  
+    <!--JS PROJECT TAGS --> 
+    <script type="text/javascript" src="scr/task.js"></script>
+    <script type="text/javascript" src="scr/index.js"></script>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   
+       
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="index.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand mr-auto mr-lg-0" href="#">Task Manager</a>
+  <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- START OF NAV START -->
+  <div></div> 
+    
+</nav>
+
+
+
+<!--NAV ENDS HERE  -->
+
+<!-- START OF FORM -->
+<main role="main" class="container">
+  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
+    <div class="form-container">
+      <form id="create-task-form" >
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInput">Title: </label>
+            <input id='input-title' type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Enter your task name...">
+          </div>
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">Deadline</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend"></div>
+              <input id='input-deadline' type="date" class="form-control" id="inlineFormInputGroup">
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <label class="sr-only" for="inlineFormInput">Creator: </label>
+            <input id='input-creator' type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Enter your name...">
+          </div>
+
+          <!-- DROP DOWN MENUE-->
+          <div class = "col-auto">
+            <label class="sr-only" for="inlineFormInputGroup">Project</label>
+            <div class="input-group mb-2">
+              <select id="projects" class="form-control" id="inlineFormInput">
+                <option value="">Choose A Project</option>        
+                <option value="3">Event Management</option>
+                <option value="4">Design Conference</option>
+              </select>
+            </div>
+          <!-- END OF DROP DOWN-->
+        </div>
+          <div class="col-auto">
+            <div class="form-check mb-2">
+              <input id='input-completed' class="form-check-input" type="checkbox" id="autoSizingCheck">
+              <label class="form-check-label" for="autoSizingCheck">
+                Completed
+              </label>
+            </div>
+          </div>
+          
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2">Create a Task</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
+ 
+  <!--END OF FORM -->
 
-  <br><br>
-
-<hr>
-  <div id="task-container">
-
-  </div>
+  <!--TASKS LIST CSS-->
+  <hr>
+  <ul id="task-container">
   
-</body>
+  </ul>
+  
+  
+<!--END OF TASKS LIST -->
+  
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="offcanvas.js"></script> 
+
+        <footer>
+           Designed in California with <span class="love">♥</span>.
+  </footer>
+
+        </body>
 </html>

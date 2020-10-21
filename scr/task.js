@@ -1,17 +1,24 @@
 class Task{
 
-  constructor (task, taskAttributes) {
+  constructor (id, title, deadline, creator, completed, project) {
     //map our attributes 
     
-    this.id = task.id
+     this.id = id;
     // debugger;
-    this.title = taskAttributes.title
-    this.deadline = taskAttributes.deadline
-    this.completed = taskAttributes.completed
-    this.project = taskAttributes.project 
-    Task.all.push(this)
+    this.title = title;
+    this.deadline = deadline;
+    this.creator = creator;
+    this.completed = completed;
+    this.project = project;
     // debugger
+    Task.all.push(this)
   }
+
+  
+  // static findById(id) {
+  //   return this.all.find(task => task.id === id);
+  // }
+
 
   
   renderTaskCard(){
@@ -19,18 +26,21 @@ class Task{
     // we write 'this' because we are in the context of this world 
     // we no longer need 'const taskMarkup = ' we just need to return the HTML
     // we no loner need 'attributes' e.g. <h3>${this.attributes.title}</h3> beause we are defining the attributes 
-      console.log(this);
+      //console.log(this);
       // debugger;
       return `
-      <div data-id=${this.id}>
-      <h3>${this.title}</h3>
-      <span>${this.deadline}</span>
-      <span>${this.creator}</span>
-      <span>${this.completed}</span>
-      <span>${this.project.name}</span>
-      <button data-id=${this.id}>edit</button>
-    </div>
-    <br><br>`;
+      <li data-id=${this.id}>
+        <span><b>Title: </b>${this.title}</span> 
+        <span> <b>deadline: </b> ${this.deadline}</span>
+        <span><b>Creator: </b>${this.creator}</span>
+        <span><b>Completed: </b>${this.completed}</span>
+        <span><b>Project Name: </b>${this.project.name}</span>
+        <button class="delete-btn" data-id=${this.id}>delete</button>
+      
+        <hr>
+      </li>
+
+      `;
 }
 
 }

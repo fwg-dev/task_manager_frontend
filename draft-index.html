@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src="scr/task.js"></script>
+  <script type="text/javascript" src="scr/index.js"></script>
+
+  <!-- Bootstrap-4 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   
+
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  
+    
+    
+
+</head>
+<body>
+
+  <div class="form-container">
+
+    <form id="create-task-form" style="">
+      <h3>Create a Task!</h3>
+
+     Title: <input id='input-title' type="text" name="title" value="" placeholder="Enter your task name..." class="input-text">
+      <br><br>
+      Deadline: <input id='input-deadline' type="date" name="deadline" value="" class="input-date">
+      <br><br>
+      Creator: <input id='input-creator' type="text" name="creator" value="" placeholder="Enter your name..."class="input-text">
+      <br><br>
+      Completed: <input id='input-completed' type="checkbox" name="completed" value="" class="input-checkbox">
+      <br><br>
+
+
+      <h4>Choose A Project</h4>
+      <select id="projects" name="projects">
+        <option value="13">Event Management</option>
+        <option value="14">Design Conference</option>
+      </select>
+      <br><br>
+
+      <!-- <h4>Or Create a new Project </h4>
+
+       <input id='input-new-project' type="text" name="new project" value="" placeholder="Create new porject" class="input-text"> -->
+  
+       <button type="button" class="btn btn-primary">Primary</button>
+      
+      <input id= 'create-button' type="submit" name="submit" value="Create New Task" class="submit">
+    </form>
+  
+  </div>
+
+  <br><br>
+
+<hr>
+  <div id="task-container">
+
+  </div>
+  
+</body>
+</html>
