@@ -162,18 +162,18 @@ function deleteTaskList(e){
        let taskId = e.target.parentElement.dataset.id
     //    console.log(taskId)
        //taskId.removeChild
-        
+
+    // debugger;
+       
+
         fetch(`${endPoint}/${taskId}`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json'
               },
-        }) 
-            .then(res => res.json())         
-            .then(json => {
-                return json;
-                       
-            })
+        })   
+        .then(e.target.parentElement.remove())  
+            
             .catch(error => {
                 console.log(error);
                 alert("could not delete task");
