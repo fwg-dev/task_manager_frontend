@@ -15,9 +15,11 @@ class Task{
   }
 
   
-  // static findById(id) {
-  //   return this.all.find(task => task.id === id);
-  // }
+  static findById(id) {
+    return this.all.find(task => task.id === id);
+  }
+  // not called on instances, but on the method itself 
+  // 
 
 
   
@@ -35,7 +37,7 @@ class Task{
         <span><b>Creator: </b>${this.creator}</span>
         <span><b>Completed: </b>${this.completed}</span>
         <span><b>Project Name: </b>${this.project.name}</span>
-        <button class="delete-btn" data-id=${this.id}>delete</button>
+        <i class="fas fa-trash" data-id=${this.id}>
       
         <hr>
       </li>
